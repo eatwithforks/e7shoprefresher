@@ -17,4 +17,10 @@
 5. Open the shop
 6. Make sure your game window is completely visible for the image locator to be able to find the buttons.
 7. In your terminal
-    - python <path_to_auto_refresh.py>
+    - python <path_to_main.py>
+    
+For example:
+1. On Windows
+    -   python C:\Users\John\Desktop\e7shoprefresher\main.py
+2. On Mac OSX
+    - python /Users/John/Desktop/e7shoprefresher/main.py
