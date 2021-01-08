@@ -19,9 +19,6 @@ def buy(type, image_filename, position):
         time.sleep(1) # wait for confirm button
 
         buy_button_location = pyautogui.locateOnScreen(image_filename, confidence=0.95)
-        print(image_filename)
-        print(buy_button_location)
-
         buy_button=pyautogui.center(buy_button_location)
         pyautogui.moveTo(buy_button[0], buy_button[1])
 
@@ -73,4 +70,4 @@ while keyboard.is_pressed('q') == False:
     buy("mystic", "Buy_button_Mystic.png", mystic_pos)
 
     refresh_shop(refresh_button)
-    
+
