@@ -27,7 +27,7 @@ def buy(type, image_filename, position):
     else:
         print("No " + type + " to buy.")
 
-def scroll_to_bottom(refresh_button):
+def scroll_to_bottom(refresh_button, refresh_button_width):
     print("scrolling")
     mid_screen = refresh_button[0] + refresh_button_width
     scroll_offset = CONFIG[args.resolution]["scroll_offset"]
@@ -80,7 +80,7 @@ while keyboard.is_pressed('q') == False:
     buy("mystic", path + "mystic_buy_button.png", mystic_pos)
 
     # scroll down to check final item
-    scroll_to_bottom(refresh_button)
+    scroll_to_bottom(refresh_button, refresh_button_width)
 
     # check if final item is a bookmark
     covenant_pos = pyautogui.locateOnScreen(path + 'covenant.png', confidence=CONFIDENCE)
