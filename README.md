@@ -26,8 +26,18 @@
 6. Open up your game (agnostic to bluestacks and LD player)
 7. Open the shop
 8. Make sure your game window is completely visible for the image locator to be able to find the buttons.
+
+### USAGE
+
 9. In your terminal
     - `cd <path_to_folder>`
-    - `sudo python main.py`
-   
+    - `sudo python main.py --resolution (4k or 1080p)`
 
+```   
+usage: main.py [-h] [--resolution RESOLUTION]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --resolution RESOLUTION
+                        choose 4k or 1080p
+```
