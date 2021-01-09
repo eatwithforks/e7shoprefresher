@@ -43,7 +43,7 @@ def refresh_shop(path, refresh_button):
     click(refresh_button[0], refresh_button[1])
     time.sleep(0.5) # wait for confirm to appear
 
-    confirm_button_pos = pyautogui.locateOnScreen(path + 'images/confirm_button.png', confidence=CONFIDENCE)
+    confirm_button_pos = pyautogui.locateOnScreen(path + 'confirm_button.png', confidence=CONFIDENCE)
     confirm_button=pyautogui.center(confirm_button_pos)
     click(confirm_button[0], confirm_button[1])
     time.sleep(RANDOM_INTERVAL) # wait for new list to load

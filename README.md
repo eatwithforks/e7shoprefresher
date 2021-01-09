@@ -31,7 +31,7 @@
 
 9. In your terminal
     - `cd <path_to_folder>`
-    - `sudo python main.py --resolution (4k or 1080p)`
+    - `python main.py --resolution (4k or 1080p)`
 
 ```   
 usage: main.py [-h] [--resolution RESOLUTION]
