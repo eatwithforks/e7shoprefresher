@@ -30,8 +30,10 @@
 ### USAGE
 
 9. In your terminal
-    - `cd <path_to_folder>`
-    - `python main.py --resolution (4k or 1080p)`
+    - `cd <path_to_folder>` 
+        -   For example: `cd C:\Users\username\Downloads\e7shoprefresher`
+    - `python main.py --resolution 4k`
+        - Supports `4k` and `1080p` values
 
 ```   
 usage: main.py [-h] [--resolution RESOLUTION]
