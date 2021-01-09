@@ -4,9 +4,7 @@ import pyautogui
 import time
 import keyboard
 import random
-
-RANDOM_INTERVAL = random.randint(1,3)
-CONFIDENCE = 0.95
+import argparse
 
 def click(x_loc,y_loc):
     pyautogui.click(clicks=2, interval=0.25, x=x_loc, y=y_loc)
@@ -32,7 +30,8 @@ def buy(type, image_filename, position):
 def scroll_to_bottom(refresh_button):
     print("scrolling")
     mid_screen = refresh_button[0] + refresh_button_width
-    drag_amount = mid_screen / 4 * -1 # negative to drag down
+    scroll_offset = CONFIG[args.resolution]["scroll_offset"]
+    drag_amount = mid_screen / scroll_offset * -1 # negative to drag down
 
     pyautogui.moveTo(mid_screen, refresh_button[1])
     pyautogui.drag(0, drag_amount, 1, button='left')
@@ -49,26 +48,44 @@ def refresh_shop(refresh_button):
     click(confirm_button[0], confirm_button[1])
     time.sleep(RANDOM_INTERVAL) # wait for new list to load
 
+RANDOM_INTERVAL = random.randint(1,3)
+CONFIDENCE = 0.95
+CONFIG = {
+  "1080p": {
+    "scroll_offset": 2,
+    "images_path": "images/1080p/"
+  },
+  "4k": {
+    "scroll_offset": 4,
+    "images_path": "images/4k/"
+  }
+}
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--resolution", help="choose 4k or 1080p")
+args = parser.parse_args()
+
+path = CONFIG[args.resolution]["images_path"]
 while keyboard.is_pressed('q') == False:
-    refresh_button_pos = pyautogui.locateOnScreen('images/refresh_button.png', confidence=CONFIDENCE)
+    refresh_button_pos = pyautogui.locateOnScreen(path + 'refresh_button.png', confidence=CONFIDENCE)
     refresh_button = pyautogui.center(refresh_button_pos)
     refresh_button_width = refresh_button_pos[2]
 
-    covenant_pos = pyautogui.locateOnScreen('images/covenant.png', confidence=CONFIDENCE)
-    mystic_pos = pyautogui.locateOnScreen('images/mystic.png', confidence=CONFIDENCE)
+    covenant_pos = pyautogui.locateOnScreen(path + 'covenant.png', confidence=CONFIDENCE)
+    mystic_pos = pyautogui.locateOnScreen(path + 'mystic.png', confidence=CONFIDENCE)
     time.sleep(0.5)
 
     # check if bookmarks in initial list
-    buy("covenant", "images/cov_buy_button.png", covenant_pos)
-    buy("mystic", "images/mystic_buy_button.png", mystic_pos)
+    buy("covenant", path + "cov_buy_button.png", covenant_pos)
+    buy("mystic", path + "mystic_buy_button.png", mystic_pos)
 
     # scroll down to check final item
     scroll_to_bottom(refresh_button)
 
     # check if final item is a bookmark
-    covenant_pos = pyautogui.locateOnScreen('images/covenant.png', confidence=CONFIDENCE)
-    mystic_pos = pyautogui.locateOnScreen('images/mystic.png', confidence=CONFIDENCE)
-    buy("covenant", "images/cov_buy_button.png", covenant_pos)
-    buy("mystic", "images/mystic_buy_button.png", mystic_pos)
+    covenant_pos = pyautogui.locateOnScreen(path + 'covenant.png', confidence=CONFIDENCE)
+    mystic_pos = pyautogui.locateOnScreen(path + 'mystic.png', confidence=CONFIDENCE)
+    buy("covenant", path + "cov_buy_button.png", covenant_pos)
+    buy("mystic", path + "mystic_buy_button.png", mystic_pos)
 
     refresh_shop(refresh_button)
