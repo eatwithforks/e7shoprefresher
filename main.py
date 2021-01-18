@@ -48,7 +48,7 @@ def refresh_shop(path, refresh_button):
     click(confirm_button[0], confirm_button[1])
     time.sleep(RANDOM_INTERVAL) # wait for new list to load
 
-RANDOM_INTERVAL = random.randint(1,3)
+RANDOM_INTERVAL = random.randint(1, 3)
 CONFIDENCE = 0.95
 CONFIG = {
   "1080p": {
@@ -73,7 +73,6 @@ while keyboard.is_pressed('q') == False:
 
     covenant_pos = pyautogui.locateOnScreen(path + 'covenant.png', confidence=CONFIDENCE)
     mystic_pos = pyautogui.locateOnScreen(path + 'mystic.png', confidence=CONFIDENCE)
-    time.sleep(0.5)
 
     # check if bookmarks in initial list
     buy("covenant", path + "cov_buy_button.png", covenant_pos)
