@@ -9,13 +9,15 @@
     - `pip install pyautogui`
     - `pip install pillow`
     - `pip install opencv-python`
-4. Open the game shop with emulator at 1080p resolution setting (agnostic to bluestacks and LD player)
+4. Open the game shop with emulator at 1080p resolution setting
+    - 280 DPI for LDplayer
+    - 240 DPI for BlueStacks 
 
 ### Usage
 
 In your terminal
 - `cd <path_to_folder>` for example: `cd C:\Users\username\Downloads\e7shoprefresher`
-- `python main.py --resolution 4k` *supports `4k` and `1080p` values*
+- `python main.py --resolution ld-4k` *supports `ld-4k`, `ld-1080p`, and `bs-1080p` values
 
 ### Help
 
