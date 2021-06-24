@@ -48,16 +48,20 @@ def refresh_shop(path, refresh_button):
     click(confirm_button[0], confirm_button[1])
     time.sleep(RANDOM_INTERVAL) # wait for new list to load
 
-RANDOM_INTERVAL = random.randint(1, 3)
+RANDOM_INTERVAL = random.randint(1, 2)
 CONFIDENCE = 0.95
 CONFIG = {
-  "1080p": {
+  "bs-1080p": {
     "scroll_offset": 2,
-    "images_path": "images/1080p/"
+    "images_path": "images/bs-1080p/"
   },
-  "4k": {
+  "ld-1080p": {
+    "scroll_offset": 2,
+    "images_path": "images/ld-1080p/"
+  },
+  "ld-4k": {
     "scroll_offset": 4,
-    "images_path": "images/4k/"
+    "images_path": "images/ld-4k/"
   }
 }
 
