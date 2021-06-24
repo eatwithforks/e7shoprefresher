@@ -66,7 +66,7 @@ CONFIG = {
 }
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--resolution", help="choose 4k or 1080p")
+parser.add_argument("--resolution", help="choose ld-4k, ld-1080p, or bs-1080p")
 args = parser.parse_args()
 
 path = CONFIG[args.resolution]["images_path"]
