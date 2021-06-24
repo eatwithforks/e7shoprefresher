@@ -1,4 +1,5 @@
-*Tested on Ldplayer with 1920 x 1080 resolution on a desktop of 3440 x 1440 windows pc*
+*Tested on Ldplayer with 1920 x 1080 and 3440 x 1440 with 280 dpi*
+*Tested on BlueStacks 5 with 1920 x 1080p with 240 dpi.*
 
 ### Set up
 
@@ -27,5 +28,5 @@ usage: main.py [-h] [--resolution RESOLUTION]
 optional arguments:
   -h, --help            show this help message and exit
   --resolution RESOLUTION
-                        choose 4k or 1080p
+                        choose ld-4k, ld-1080p, or bs-1080p
 ```
